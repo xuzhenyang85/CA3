@@ -18,7 +18,7 @@ public interface IPlaceFacade {
 
     public Place getPlaceById(int id);
 
-//    public Place getPlaceByCity();
+    public List<Place> getPlaceByCity(String city);
 //
 //    public Place findByDescription();
 //

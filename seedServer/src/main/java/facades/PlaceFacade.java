@@ -37,7 +37,8 @@ public class PlaceFacade implements IPlaceFacade {
 
         /*Runs the different methods*/
         //System.out.println(pf.getAllPlaces());
-        System.out.println(pf.getPlaceById(2));
+        //System.out.println(pf.getPlaceById(12));
+        System.out.println(pf.getPlaceByCity("Lyngby"));
     }
 
     /*THE METHODS*/
@@ -53,7 +54,6 @@ public class PlaceFacade implements IPlaceFacade {
         EntityManager em = emf.createEntityManager();
 
         try {
-
             Place place = em.find(Place.class, id);
             return place;
         } catch (Exception e) {
@@ -62,11 +62,15 @@ public class PlaceFacade implements IPlaceFacade {
         return null;
     }
 
-//    @Override
-//    public Place getPlaceByCity() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-//
+    @Override
+    public List<Place> getPlaceByCity(String city) {
+        EntityManager em = emf.createEntityManager();
+
+        List<Place> place = em.createNamedQuery("Place.findByCity").getResultList();
+
+        return place;
+    }
+
 //    @Override
 //    public Place findByDescription() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
