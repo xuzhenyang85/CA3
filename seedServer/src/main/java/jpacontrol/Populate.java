@@ -20,11 +20,12 @@ public class Populate
         Role userRole = new Role("User");
         Role adminRole = new Role("Admin");
         
-        User user1 = new User("user1","1234");
+        User user1 = new User("dogan","1234");
         user1.addRole(userRole);
         em.persist(user1);
 
-        User user2 = new User("user2","1234");
+        User user2 = new User("menja","1234");
+        user2.addRole(adminRole);
         em.persist(user2);
 
         em.getTransaction().commit();
