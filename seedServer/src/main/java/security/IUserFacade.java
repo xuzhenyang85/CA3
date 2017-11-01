@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  *
- * @author lam
+ * @author xu
  */
 public interface IUserFacade {
 
@@ -13,5 +13,6 @@ public interface IUserFacade {
      */
     List<String> authenticateUser(String userName, String password);
     IUser getUserByUserId(String id);
-    
+    List<IUser> getAllUsers();
+    String createUser(String userName, String passWord);
 }

@@ -38,11 +38,11 @@ class Login extends Component {
           <input type="text" value={this.state.user.username} onChange={this.onChange} className="form-control" id="username" placeholder="User Name" required autoFocus />
           <label htmlFor="inputPassword" className="sr-only">Password</label>
           <input type="password" value={this.state.user.password} onChange={this.onChange} id="password" className="form-control" placeholder="Password" required />
-          <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+          <button className="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
           <br />
         </form>
-        { this.state.err && ( 
-          <div className="alert alert-danger errmsg"  role="alert"> 
+        { this.state.err && (
+          <div className="alert alert-danger errmsg"  role="alert">
             {this.state.err}
           </div>
         )}
