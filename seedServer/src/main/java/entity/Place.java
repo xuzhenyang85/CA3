@@ -130,8 +130,8 @@ public class Place implements Serializable {
                 + "Street: " + street + "\n"
                 + "Zip: " + zip + "\n"
                 + "City: " + city + "\n"
-                + "Geo: " + city + "\n"
-                + "City: " + city + "\n"
+                + "Geolat: " + geolat + "\n"
+                + "Geolng: " + geolng + "\n"
                 + "Description: " + description + "\n"
                 + "Rating: " + rating + "\n";
     }
