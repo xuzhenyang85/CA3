@@ -7,7 +7,7 @@ class UserStore {
     this._errorMessage = "";
   }
 
-  getData = (cb,path) => {
+  getData = (cb, path) => {
       this._errorMessage = "";
       this._messageFromServer = "";
       let resFromFirstPromise = null;  //Pass on response the "second" promise so we can read errors from server
