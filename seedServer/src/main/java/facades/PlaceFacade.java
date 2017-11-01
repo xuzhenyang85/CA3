@@ -36,9 +36,9 @@ public class PlaceFacade implements IPlaceFacade {
         PlaceFacade pf = new PlaceFacade(emf);
 
         /*Runs the different methods*/
+        //VIRKER IKKE: System.out.println(pf.getPlaceByCity("Lyngby"));
         //System.out.println(pf.getAllPlaces());
-        //System.out.println(pf.getPlaceById(12));
-        System.out.println(pf.getPlaceByCity("Lyngby"));
+        System.out.println(pf.getPlaceById(12));
     }
 
     /*THE METHODS*/
@@ -66,9 +66,10 @@ public class PlaceFacade implements IPlaceFacade {
     public List<Place> getPlaceByCity(String city) {
         EntityManager em = emf.createEntityManager();
 
-        List<Place> place = em.createNamedQuery("Place.findByCity").getResultList();
+        //Place place = em.find(Place.class, city);
+        List<Place> places = em.createNamedQuery("Place.findByCity").getResultList();
 
-        return place;
+        return places;
     }
 
 //    @Override
