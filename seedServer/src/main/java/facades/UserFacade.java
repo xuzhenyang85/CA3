@@ -94,8 +94,8 @@ public class UserFacade implements IUserFacade {
     
     public static void main(String[] args) {
         UserFacade uf = new UserFacade(Persistence.createEntityManagerFactory("pu_development"));
-        String str =uf.createUser("xu", "1234");
-        System.out.println(str);
+        List<IUser> users = uf.getAllUsers();
+        System.out.println(users);
     }
 
 }

@@ -12,9 +12,9 @@ public class Structure
         HashMap puproperties = new HashMap();
         
         puproperties.put("javax.persistence.sql-load-script-source", "scripts/ClearDB.sql");
-        Persistence.generateSchema("jpaPU", puproperties);
+        Persistence.generateSchema("CA3_seed", puproperties);
         
         puproperties.remove("javax.persistence.sql-load-script-source");
-        Persistence.generateSchema("jpaPU", puproperties);
+        Persistence.generateSchema("CA3_seed", puproperties);
     }
 }
