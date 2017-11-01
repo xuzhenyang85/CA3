@@ -6,12 +6,31 @@
 package interfaces;
 
 import entity.Place;
+import java.util.List;
 
 /**
  *
  * @author Menja
  */
 public interface IPlaceFacade {
-    public Place getPlaceById();
-    public Place getPlaceByCity();
+
+    public List<Place> getAllPlaces();
+
+    public Place getPlaceById(int id);
+
+//    public Place getPlaceByCity();
+//
+//    public Place findByDescription();
+//
+//    public Place findByGeolat();
+//
+//    public Place findByGeolng();
+//
+//    public Place findByImage();
+//
+//    public Place findByRating();
+//
+//    public Place findByStreet();
+//
+//    public Place findByZip();
 }
