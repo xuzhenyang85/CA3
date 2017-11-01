@@ -128,5 +128,3 @@ auth.initDataFromToken();
 //window.auth = auth;
 
 export default auth;
-
-

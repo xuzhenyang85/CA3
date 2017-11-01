@@ -32,6 +32,4 @@ class AdminStore {
 
 let adminStore = new AdminStore();
 
-//Only for debugging
-//window.userStore = userStore;
 export default adminStore;
