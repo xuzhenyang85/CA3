@@ -6,6 +6,7 @@
 package facades;
 
 import entity.Place;
+import interfaces.IPlaceFacade;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,11 +16,11 @@ import javax.persistence.Persistence;
  *
  * @author Menja
  */
-public class PlaceFacade {
+public class PlaceFacade implements IPlaceFacade {
 
     EntityManagerFactory emf;
 
-    //Constructor
+    /*CONSTRUCTOR*/
     public PlaceFacade(EntityManagerFactory emf) {
         this.emf = emf;
     }
@@ -28,21 +29,76 @@ public class PlaceFacade {
         return emf.createEntityManager();
     }
 
+    /*MAIN METHOD*/
     public static void main(String[] args) {
         //Creates a persistence unit and new instance of Placefacade
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu_development");
         PlaceFacade pf = new PlaceFacade(emf);
 
         /*Runs the different methods*/
-        System.out.println(pf.getAllPlaces());
+        //System.out.println(pf.getAllPlaces());
+        System.out.println(pf.getPlaceById(2));
     }
 
-    //The methods
+    /*THE METHODS*/
+    @Override
     public List<Place> getAllPlaces() {
         EntityManager em = emf.createEntityManager();
         List<Place> places = em.createNamedQuery("Place.findAll").getResultList();
         return places;
     }
-//  public Place getPlaceById(){}
-//  public Place getPlaceByCity(){}
+
+    @Override
+    public Place getPlaceById(int id) {
+        EntityManager em = emf.createEntityManager();
+
+        try {
+
+            Place place = em.find(Place.class, id);
+            return place;
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        return null;
+    }
+
+//    @Override
+//    public Place getPlaceByCity() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public Place findByDescription() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public Place findByGeolat() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public Place findByGeolng() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public Place findByImage() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public Place findByRating() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public Place findByStreet() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public Place findByZip() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 }
