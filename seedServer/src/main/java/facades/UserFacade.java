@@ -25,14 +25,7 @@ public class UserFacade implements IUserFacade {
     private EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-    
-    
-    
-    
-    
-    
-    
-    
+
 
     @Override
     public IUser getUserByUserId(String id) {
@@ -43,14 +36,7 @@ public class UserFacade implements IUserFacade {
             em.close();
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
+
 
     @Override
     public List<IUser> getAllUsers() {

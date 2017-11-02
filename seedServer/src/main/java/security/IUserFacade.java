@@ -2,9 +2,9 @@ package security;
 
 import java.util.List;
 
+
 public interface IUserFacade
 {
-
     /*
     Return the Roles if users could be authenticated, otherwise null
      */

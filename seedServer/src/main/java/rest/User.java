@@ -18,29 +18,27 @@ import security.UserFacadeFactory;
 
 @Path("demouser")
 @RolesAllowed("User")
-public class User
-{
+public class User {
 
     IUserFacade userFacade;
 
     @Context
     private UriInfo context;
 
-    public User()
-    {
+    public User() {
         userFacade = UserFacadeFactory.getInstance();
     }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String getSomething()
-    {
+    public String getSomething() {
         return "{\"message\" : \"Hello User from Server (Accesible by only authenticated USERS)\"}";
     }
 
     @GET
     @Path("random")
     @Produces(MediaType.APPLICATION_JSON)
+
     public String getRandomNumber()
     {
         Random rand = new Random();
@@ -68,12 +66,17 @@ public class User
     }
    
 
+
+    public String getRandomNumber() {
+        Random rand = new Random();
+        return "" + "{\"message\" : \""+rand.nextInt(500)+"\"}";
+    }
+
     @POST
     @Path("/user")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public void createUser(String content)
-    {
+    public void createUser(String content) {
         entity.User u = new Gson().fromJson(content, entity.User.class);
         System.out.println("username :" + u.getUserName() + " password: " + u.getPasswordHash());
         userFacade.createUser(u.getUserName(), u.getPasswordHash());

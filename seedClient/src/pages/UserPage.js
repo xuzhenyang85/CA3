@@ -18,23 +18,23 @@ class UserPage extends Component {
           return this.setState({err:e.err})
         }
         this.setState({err:"",data});
-      });
+      }, "api/demouser");
     }
     render() {
       return (
         <div>
           <h2>Users</h2>
           <p>This message is fetched from the server if you are properly logged in</p>
-          
+
           <div className="msgFromServer">
-            {this.state.data}  
+            {this.state.data}
           </div>
-          { this.state.err && ( 
-            <div className="alert alert-danger errmsg-left" role="alert"> 
+          { this.state.err && (
+            <div className="alert alert-danger errmsg-left" role="alert">
               {this.state.err}
             </div>
           )}
-         
+
         </div>
       )
     }

@@ -6,6 +6,8 @@ import About from "./About";
 import UserPage from "./UserPage";
 import AdminPage from "./AdminPage";
 import TopMenu from "./TopMenu";
+import UserList from "./UserList";
+import RandomNumber from "./RandomNumber";
 
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
         <Route path="/about" component={About} />
         <Route path="/user" component={UserPage} />
         <Route path="/admin" component={AdminPage} />
+        <Route path="/userList" component={UserList} />
+        <Route path="/random" component={RandomNumber} />
       </Switch>
     </div>
   )
