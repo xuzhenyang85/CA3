@@ -2,17 +2,17 @@ package security;
 
 import java.util.List;
 
-/**
- *
- * @author xu
- */
-public interface IUserFacade {
 
+public interface IUserFacade
+{
     /*
     Return the Roles if users could be authenticated, otherwise null
      */
     List<String> authenticateUser(String userName, String password);
+
     IUser getUserByUserId(String id);
+
     List<IUser> getAllUsers();
+
     String createUser(String userName, String passWord);
 }

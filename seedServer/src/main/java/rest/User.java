@@ -1,6 +1,7 @@
 package rest;
 
 import com.google.gson.Gson;
+import java.util.List;
 import java.util.Random;
 import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.Consumes;
@@ -11,6 +12,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
+import security.IUser;
 import security.IUserFacade;
 import security.UserFacadeFactory;
 
@@ -36,6 +38,35 @@ public class User {
     @GET
     @Path("random")
     @Produces(MediaType.APPLICATION_JSON)
+
+    public String getRandomNumber()
+    {
+        Random rand = new Random();
+        return "" + "{\"message\" : \"" + rand.nextInt(500) + "\"}";
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/all")
+    public String getAllUsers(String content)
+    {
+        List<IUser> user = userFacade.getAllUsers();
+        return new JsonConverter().getJSONFromUsers(user);
+
+    }
+    
+    @GET
+    @Path("/user/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public String getUserByUserId(String id)
+    {
+        IUser user = userFacade.getUserByUserId(id);
+        return new JsonConverter().getJSONFromUser(user);
+    }
+   
+
+
     public String getRandomNumber() {
         Random rand = new Random();
         return "" + "{\"message\" : \""+rand.nextInt(500)+"\"}";
