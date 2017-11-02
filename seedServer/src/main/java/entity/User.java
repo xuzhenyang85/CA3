@@ -71,5 +71,12 @@ public class User implements IUser, Serializable{
   public String getUserName() {
     return userName;
   }
+
+    @Override
+    public String toString() {
+        return "UserName:" + userName + " Rroles: " + roles +" PasswordHash: " + passwordHash ;
+    }
+  
      
 }
+
