@@ -1,5 +1,5 @@
-import React from "react"
-import {Route, Switch } from "react-router-dom"
+import React from "react";
+import {Route, Switch } from "react-router-dom";
 import Login from "./Login";
 import Logout from "./Logout";
 import About from "./About";
@@ -8,6 +8,7 @@ import AdminPage from "./AdminPage";
 import TopMenu from "./TopMenu";
 import UserList from "./UserList";
 import RandomNumber from "./RandomNumber";
+import Search from "./Search";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/admin" component={AdminPage} />
         <Route path="/userList" component={UserList} />
         <Route path="/random" component={RandomNumber} />
+        <Route path="/search" component={Search} />
       </Switch>
     </div>
   )
