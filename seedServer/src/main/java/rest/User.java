@@ -64,14 +64,7 @@ public class User {
         IUser user = userFacade.getUserByUserId(id);
         return new JsonConverter().getJSONFromUser(user);
     }
-   
-
-
-    public String getRandomNumber() {
-        Random rand = new Random();
-        return "" + "{\"message\" : \""+rand.nextInt(500)+"\"}";
-    }
-
+  
     @POST
     @Path("/user")
     @Consumes(MediaType.APPLICATION_JSON)
