@@ -1,6 +1,11 @@
 package rest;
 
 import com.google.gson.Gson;
+import entity.Place;
+import facades.PlaceFacade;
+import interfaces.IPlaceFacade;
+import java.util.List;
+import javax.persistence.EntityManagerFactory;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
@@ -21,6 +26,10 @@ import security.UserFacadeFactory;
 public class All {
 
     IUserFacade userFacade;
+    EntityManagerFactory emf;
+    
+    private final IPlaceFacade placeFacade = new PlaceFacade(emf);
+    private final JsonConverter jsonConverter = new JsonConverter();
 
     @Context
     private UriInfo context;
@@ -35,6 +44,14 @@ public class All {
         return " {\"message\" : \"result for all\"}";
     }
 
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/places")
+    public String getAllPlaces() {
+        List<Place> places = placeFacade.getAllPlaces();
+        return jsonConverter.getJSONFromPlaces(places);
+    }
+
     @POST
     @Path("/user")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -44,4 +61,5 @@ public class All {
         System.out.println("username :" + u.getUserName() + " password: " + u.getPasswordHash());
         userFacade.createUser(u.getUserName(), u.getPasswordHash());
     }
+
 }
