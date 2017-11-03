@@ -12,7 +12,6 @@ import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.core.Response;
 import security.IUser;
 import security.PasswordStorage;
-
 public class UserFacade implements IUserFacade {
 
     EntityManagerFactory emf;
