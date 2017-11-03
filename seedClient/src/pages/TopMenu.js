@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import auth from '../authorization/auth'
+import auth from '../authorization/auth';
+import Search from './Search';
 
 class TopMenu extends Component {
 
@@ -30,6 +31,9 @@ class TopMenu extends Component {
             </div>
             <ul className="nav navbar-nav">
               <li><Link to="/about">About</Link></li>
+              <li>
+                <Link to="/search">search </Link>
+                </li>
               {this.state.isUser &&(<li><Link to="/user">Page for Users </Link></li>)}
               {this.state.isAdmin &&(<li><Link to="/admin">Page for Admins</Link></li>)}
               {this.state.isUser && (<li><Link to="/random">Random Number </Link></li>)}
