@@ -22,7 +22,7 @@ import security.UserFacadeFactory;
 /**
  * REST Web Service
  *
- * @author xu
+ * @author Menja, Xu
  */
 @Path("all")
 public class All {
