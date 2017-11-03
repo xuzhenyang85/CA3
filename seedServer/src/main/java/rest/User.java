@@ -48,7 +48,7 @@ public class User {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/all")
-    public String getAllUsers(String content)
+    public String getAllUsers()
     {
         List<IUser> user = userFacade.getAllUsers();
         return new JsonConverter().getJSONFromUsers(user);
@@ -63,13 +63,6 @@ public class User {
     {
         IUser user = userFacade.getUserByUserId(id);
         return new JsonConverter().getJSONFromUser(user);
-    }
-   
-
-
-    public String getRandomNumber() {
-        Random rand = new Random();
-        return "" + "{\"message\" : \""+rand.nextInt(500)+"\"}";
     }
 
     @POST

@@ -11,6 +11,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 /**
  *
@@ -36,9 +37,9 @@ public class PlaceFacade implements IPlaceFacade {
         PlaceFacade pf = new PlaceFacade(emf);
 
         /*Runs the different methods*/
-        //VIRKER IKKE: System.out.println(pf.getPlaceByCity("Lyngby"));
-        //System.out.println(pf.getAllPlaces());
-        System.out.println(pf.getPlaceById(12));
+        System.out.println(pf.getPlaceByCity("Lyngby"));
+        //System.out.println("ALL PLACES: \n" + pf.getAllPlaces());
+        //System.out.println("PLACE BY ID: \n" + pf.getPlaceById(12));
     }
 
     /*THE METHODS*/
@@ -66,9 +67,9 @@ public class PlaceFacade implements IPlaceFacade {
     public List<Place> getPlaceByCity(String city) {
         EntityManager em = emf.createEntityManager();
 
-        //Place place = em.find(Place.class, city);
-        List<Place> places = em.createNamedQuery("Place.findByCity").getResultList();
-
+        Query q = em.createNamedQuery("Place.findByCity");
+        q.setParameter("city", city);
+        List<Place> places = q.getResultList();
         return places;
     }
 

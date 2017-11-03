@@ -26,7 +26,9 @@ export default {
    * @param {*} err 
    */
   addJustErrorMessage(err){
+    console.log(err);
     return  (err.message) === "Failed to fetch" ? `Failed to connect to the server (is the server running?)`: err.message;
+
   }
 }
 
