@@ -9,6 +9,7 @@ import TopMenu from "./TopMenu";
 import UserList from "./UserList";
 import RandomNumber from "./RandomNumber";
 import Search from "./Search";
+import Place from "./Place";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/userList" component={UserList} />
         <Route path="/random" component={RandomNumber} />
         <Route path="/search" component={Search} />
+        <Route path="/place" component ={Place} />
       </Switch>
     </div>
   )

@@ -33,22 +33,6 @@ class Search extends Component {
         */
     }
 
-    /*
-    [
-  {
-    "id": 4,
-    "image": "image.jpg",
-    "street": "Vejnavn 1",
-    "zip": "2800",
-    "city": "KÃ¸ge",
-    "geolat": 12.445,
-    "geolng": 32.7632,
-    "description": "Ude pÃ¥ sjÃ¦lland",
-    "rating": 5
-  }
-]
-    */
-
     render() {
         const rows = this.state.data.map(row => {
             return (
@@ -66,7 +50,7 @@ class Search extends Component {
         })
         return (
             <div>
-                <input type="text" value={this.state.places.search} onChange={this.onChange} id="search" placeholder="Search for places..." />
+                <input type="text" value={this.state.places.search} onChange={this.onChange} id="search" placeholder="Search Lyngby..." />
                 <button type="button" onClick={this.handleClick}>search</button>
 
                 <div>

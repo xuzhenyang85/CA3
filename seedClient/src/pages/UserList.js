@@ -15,13 +15,13 @@ componentWillMount() {
   This will fetch data each time you navigate to this route
   If only required once, add "logic" to determine when data should be "refetched"
   */
-  adminData.getData((e, data) => {
+  adminData.getUsers((e, data) => {
     if (e) {
       return this.setState({ err: e.err })
     }
     var message ="";
     for (let i=0; i< data.length;i++) {
-      if(i==data.length-1){
+      if(i===data.length-1){
         message+=data[i];
       }else {
       message+=data[i] + " , ";
