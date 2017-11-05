@@ -2,9 +2,9 @@
  * Created by Xu on 01-11-2017.
  */
 import React, {Component} from 'react'
-import adminData from "../facades/adminFacade";
+import placeData from "../facades/placeFacade";
 
-class UserList extends Component {
+class PlaceList extends Component {
   constructor() {
   super();
   this.state = { message: "", data: "", err: "" }
@@ -15,30 +15,23 @@ componentWillMount() {
   This will fetch data each time you navigate to this route
   If only required once, add "logic" to determine when data should be "refetched"
   */
-  adminData.getUsers((e, data) => {
+  placeData.getPlaces((e, data) => {
     if (e) {
       return this.setState({ err: e.err })
     }
     var message ="";
-    for (let i=0; i< data.length;i++) {
-      if(i===data.length-1){
-        message+=data[i];
-      }else {
-      message+=data[i] + " , ";
-    }}
-    this.setState({ err: "", data: data, message:message });
-    console.log(message);
-  }, "api/demoadmin/users");
+    message = e;
+    console.log(data);
+  }, "api/all/places");
 }
 
 render() {
   return (
     <div>
-      <h2>All users</h2>
-      <p>This list contains all the users in the system</p>
-      <div className="msgFromServer">
+      <h2>Sommerhus</h2>
+      <p>This list contains all the places in the system</p>
+      <img src="https://xudk.me/backend/ca3/img/image.jpg"  />
       {this.state.message}
-      </div>
       {this.state.err && (
         <div className="alert alert-danger errmsg-left" role="alert">
           {this.state.err}
@@ -49,4 +42,4 @@ render() {
 }
 }
 
-export default UserList;
+export default PlaceList;
